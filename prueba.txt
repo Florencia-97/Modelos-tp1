@@ -1,0 +1,15 @@
+c Archivo de prueba
+p edge 5 20
+e 1 2
+e 1 3
+e 2 2
+e 2 3
+e 3 4
+e 4 3
+e 5 4
+c tiempos!
+n 1 8
+n 2 10
+n 3 9
+n 4 7
+n 5 3
