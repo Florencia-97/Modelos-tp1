@@ -1,6 +1,5 @@
 # Modelos-tp1
 
-
 ## Enunciado
 
 Una lavandería tiene que lavar prendas, algunas pueden ir juntas y otras no (destiñen).

@@ -1,6 +1,11 @@
 ## Impresion inicial del problema
 
+A priori parece un problema 'común' de programación
+
 ## Ideas de como lo van a intentar resolver
+
+A priori, intentaré guardar toda la información en una estructura simple (una lista o un diccionario)
+ para ir guardando la información que leo y así tomar la desición pertinente.
 
 ## Comentarios sobre los cambios que hagan en el codigo a medida que intentan mejorar el resultado
 
