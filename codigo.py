@@ -51,7 +51,7 @@ class Solucion:
         return self._tiempo_prendas[numero_ropa]
 
     def _buscar_solucion(self):
-        self._solucion = []
+        self._solucion = set()
         lavado_numero = 1
         lista_compatibles = list(self._compatibles.items())
         lista_compatibles = sorted(lista_compatibles, key=self._sort)
@@ -59,9 +59,9 @@ class Solucion:
             if self.prenda_ya_anotada(prenda):
                 continue
             _prendas_posibles = self.prendas_posibles(prenda, compatibles)
-            self._solucion.append((prenda, lavado_numero))
+            self._solucion.add((prenda, lavado_numero))
             for _pp in _prendas_posibles:
-                self._solucion.append((_pp, lavado_numero))
+                self._solucion.add((_pp, lavado_numero))
             lavado_numero += 1
 
     def prenda_ya_anotada(self, prenda):
