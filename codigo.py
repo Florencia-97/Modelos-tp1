@@ -77,7 +77,8 @@ class Solucion:
     
     def prendas_posibles(self, prenda, prendas_compatibles):
         posibles = []
-        for _prenda in prendas_compatibles:
+        compatibles = sorted(prendas_compatibles, key=self._tiempo_de_lavado_de, reverse =True)
+        for _prenda in compatibles:
             if self.prenda_ya_anotada(_prenda):
                 continue
             if self._prenda_puede_entrar_en(_prenda, posibles):
