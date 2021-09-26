@@ -1,12 +1,20 @@
-## Impresion inicial del problema
-
-A priori parece un problema 'común' de programación
-
-## Ideas de como lo van a intentar resolver
-
-A priori, intentaré guardar toda la información en una estructura simple (una lista o un diccionario)
- para ir guardando la información que leo y así tomar la desición pertinente.
-
-## Comentarios sobre los cambios que hagan en el codigo a medida que intentan mejorar el resultado
-
-## Comentarios finales
+1 , 1
+10 , 2
+19 , 3
+2 , 4
+3 , 5
+4 , 6
+5 , 7
+6 , 8
+7 , 9
+8 , 10
+9 , 11
+17 , 12
+11 , 13
+20 , 14
+18 , 15
+12 , 16
+13 , 17
+14 , 18
+15 , 19
+16 , 20
