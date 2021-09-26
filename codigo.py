@@ -21,17 +21,13 @@ class Solucion:
     def _xx(self):
         return [str(n) for n in range (1, self._n_prendas + 1)]
 
-    def _comando_e(self, parametros):
-        n_1 = parametros[1]
-        n_2 = parametros[2]
+    def _comando_e(self, n_1, n_2):
         if n_1 == n_2:
             return
         self._compatibles[n_1] = remover_elemento(self._compatibles.get(n_1, self._xx()), n_2)
         self._compatibles[n_2] = remover_elemento(self._compatibles.get(n_2, self._xx()), n_1)
 
-    def _comando_n(self, parametros):
-        n_1 = parametros[1]
-        tiempo = parametros[2]
+    def _comando_n(self, n_1, tiempo):
         self._tiempo_prendas[(int(n_1) - 1)] = int(tiempo)
     
     def _parsear_documento(self):
@@ -42,11 +38,11 @@ class Solucion:
                 if tipo_de_comando == 'c':
                     continue
                 if tipo_de_comando == 'p':
-                    self._cargar_settings(parametros[2], parametros[3])
+                    self._cargar_settings(*parametros[2:])
                 elif tipo_de_comando == 'e':
-                    self._comando_e(parametros)
+                    self._comando_e(*parametros[1:])
                 elif tipo_de_comando == 'n':
-                    self._comando_n(parametros)
+                    self._comando_n(*parametros[1:])
 
     def _tiempo_de_lavado_de(self, numero_ropa):
         return self._tiempo_prendas[int(numero_ropa) - 1]
