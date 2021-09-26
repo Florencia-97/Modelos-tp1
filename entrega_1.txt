@@ -1,0 +1,7 @@
+## Impresion inicial del problema
+
+## Ideas de como lo van a intentar resolver
+
+## Comentarios sobre los cambios que hagan en el codigo a medida que intentan mejorar el resultado
+
+## Comentarios finales
