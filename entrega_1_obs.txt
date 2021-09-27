@@ -9,4 +9,12 @@ A priori, intentaré guardar toda la información en una estructura simple (una 
 
 ## Comentarios sobre los cambios que hagan en el codigo a medida que intentan mejorar el resultado
 
+Las mejoras realizadas fueron principalmente sobre el orden de los tiempos de las prendas.
+A priori se pensó que de ser posible, podía ser una optimización juntar, de ser posible,
+las prendas más pesadas.
+
 ## Comentarios finales
+
+Luego de alcanzar un score de 62, se puede notar que esta no es la solución óptima al problema.
+En un futuro, considero de implementar un mejor algoritmo para analizar la mejor distribución.
+No necesariamente es el mejor caso el juntar las prendas más pesadas.
