@@ -95,7 +95,7 @@ class Solucion:
     def _escribir_solucion(self):
         with open('./entrega_1.txt', 'w') as archivo:
             for entrada in self._solucion:
-                archivo.write(f'{entrada[0]} , {entrada[1]}\n')
+                archivo.write(f'{entrada[0]} {entrada[1]}\n')
 
 
     def resolver(self):
