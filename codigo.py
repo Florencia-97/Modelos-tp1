@@ -105,7 +105,7 @@ class Solucion:
         print(self._tiempo)
 
 def main():
-    archivo = './enunciado.txt'
+    archivo = './enunciado2.txt'
     solucion = Solucion(archivo)
     solucion.resolver()
 
