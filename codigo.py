@@ -10,7 +10,7 @@ class Solucion:
         self._compatibles = {}
         self._n_prendas = 0
         self._m_incompatibilidades = 0
-        self._solucion = []
+        self._solucion = set()
         self._tiempo = 0
 
     def _cargar_settings(self, n, m):
@@ -56,8 +56,7 @@ class Solucion:
     def _buscar_solucion(self):
         self._solucion = set()
         lavado_numero = 1
-        lista_compatibles = list(self._compatibles.items())
-        lista_compatibles = sorted(lista_compatibles, key=self._sort, reverse=True)
+        lista_compatibles = sorted(list(self._compatibles.items()), key=self._sort, reverse=True)
         for prenda, compatibles in lista_compatibles:
             if self.prenda_ya_anotada(prenda):
                 continue
@@ -69,19 +68,14 @@ class Solucion:
             lavado_numero += 1
     
     def _mayor_tiempo_de_lavado_entre(self, prendas):
-        lista_compatibles = sorted(prendas, key=self._tiempo_de_lavado_de, reverse =True)
-        return self._tiempo_de_lavado_de(lista_compatibles[0])
+        return max(self._tiempo_de_lavado_de(p) for p in prendas)
 
     def prenda_ya_anotada(self, prenda):
-        for s in self._solucion:
-            if prenda == s[0]:
-                return True
-        return False
+        return any([prenda == s[0] for s in self._solucion])
     
     def prendas_posibles(self, prenda, prendas_compatibles):
         posibles = []
         compatibles = sorted(prendas_compatibles, key=self._tiempo_de_lavado_de, reverse =True)
-        #compatibles = sorted(prendas_compatibles, key=self._cantidad_de_prendas_posibles, reverse =True)
         for _prenda in compatibles:
             if self.prenda_ya_anotada(_prenda):
                 continue
@@ -90,11 +84,8 @@ class Solucion:
         return posibles
     
     def _prenda_puede_entrar_en(self, prenda, posibles):
-        posibles_prenda = self._compatibles[prenda]
-        for p in posibles:
-            if p not in posibles_prenda:
-                return False
-        return True
+        posibles_prendas = self._compatibles[prenda]
+        return not any([(p not in posibles_prendas) for p in posibles])
     
     def _escribir_solucion(self):
         with open('./entrega_2.txt', 'w') as archivo:
