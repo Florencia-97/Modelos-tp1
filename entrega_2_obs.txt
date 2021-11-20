@@ -3,3 +3,5 @@ Al comenzar el resultado encontrado es 513
 
 ### Pruebas:
 * Se intentó no ordernar por tiempo, pero por cantidad de prendas que tienen compatibles. No se logró una mejora en los tiempos
+* Se optimizan los tiempos de ejecución. Ahora se crea una única vez el listado de prendas compatibles
+* Con esta optimización se encontró un pequeño problema de repetición, ahora el resultado es de 493

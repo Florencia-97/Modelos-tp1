@@ -17,15 +17,13 @@ class Solucion:
         self._n_prendas = int(n)
         self._tiempo_prendas = [0] * self._n_prendas
         self._m_incompatibilidades = int(m)
-
-    def _xx(self, prenda_n):
-        return [str(n) for n in range (1, self._n_prendas + 1) if prenda_n != str(n)]
+        for prenda_n in range(1, self._n_prendas + 1):
+            comp = [str(num_p) for num_p in range (1, self._n_prendas + 1) if str(prenda_n) != str(num_p)]
+            self._compatibles[str(prenda_n)] = comp
 
     def _comando_incompatibilidad(self, n_1, n_2):
-        lista_n_1 = self._xx(n_1)
-        lista_n_2 = self._xx(n_2)
-        self._compatibles[n_1] = remover_elemento(self._compatibles.get(n_1, lista_n_1), n_2)
-        self._compatibles[n_2] = remover_elemento(self._compatibles.get(n_2, lista_n_2), n_1)
+        self._compatibles[n_1].remove(n_2)
+        self._compatibles[n_2].remove(n_1)
 
     def _comando_tiempo_prenda(self, n_1, tiempo):
         self._tiempo_prendas[(int(n_1) - 1)] = int(tiempo)
