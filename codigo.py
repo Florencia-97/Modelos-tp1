@@ -47,6 +47,11 @@ class Solucion:
     def _tiempo_de_lavado_de(self, numero_ropa):
         return self._tiempo_prendas[int(numero_ropa) - 1]
 
+    def _cantidad_de_prendas_posibles(self, numero_ropa):
+        """No se utiliza, prueba para ordenar de otra forma"""
+        prenda = str(int(numero_ropa) - 1)
+        return len(self._compatibles.get(prenda, []))
+
     def _sort(self, s):
         return self._tiempo_de_lavado_de(s[0])
 
@@ -58,8 +63,8 @@ class Solucion:
         for prenda, compatibles in lista_compatibles:
             if self.prenda_ya_anotada(prenda):
                 continue
-            _prendas_posibles = self.prendas_posibles(prenda, compatibles)
             self._solucion.add((prenda, lavado_numero))
+            _prendas_posibles = self.prendas_posibles(prenda, compatibles)
             for _pp in _prendas_posibles:
                 self._solucion.add((_pp, lavado_numero))
             self._tiempo += self._mayor_tiempo_de_lavado_entre(_prendas_posibles + [prenda])
@@ -78,6 +83,7 @@ class Solucion:
     def prendas_posibles(self, prenda, prendas_compatibles):
         posibles = []
         compatibles = sorted(prendas_compatibles, key=self._tiempo_de_lavado_de, reverse =True)
+        #compatibles = sorted(prendas_compatibles, key=self._cantidad_de_prendas_posibles, reverse =True)
         for _prenda in compatibles:
             if self.prenda_ya_anotada(_prenda):
                 continue
@@ -93,7 +99,7 @@ class Solucion:
         return True
     
     def _escribir_solucion(self):
-        with open('./entrega_1.txt', 'w') as archivo:
+        with open('./entrega_2.txt', 'w') as archivo:
             for entrada in self._solucion:
                 archivo.write(f'{entrada[0]} {entrada[1]}\n')
 
