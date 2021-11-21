@@ -22,6 +22,7 @@ class Solucion:
             self._compatibles[str(prenda_n)] = comp
 
     def _comando_incompatibilidad(self, n_1, n_2):
+        self._m_incompatibilidades -= 1
         self._compatibles[n_1].remove(n_2)
         self._compatibles[n_2].remove(n_1)
 
@@ -45,10 +46,10 @@ class Solucion:
     def _tiempo_de_lavado_de(self, numero_ropa):
         return self._tiempo_prendas[int(numero_ropa) - 1]
 
-    def _cantidad_de_prendas_posibles(self, numero_ropa):
-        """No se utiliza, prueba para ordenar de otra forma"""
-        prenda = str(int(numero_ropa) - 1)
-        return len(self._compatibles.get(prenda, []))
+    # def _cantidad_de_prendas_posibles(self, numero_ropa):
+    #     """No se utiliza, prueba para ordenar de otra forma"""
+    #     prenda = str(int(numero_ropa) - 1)
+    #     return len(self._compatibles.get(prenda, []))
 
     def _sort(self, s):
         return self._tiempo_de_lavado_de(s[0])
@@ -61,10 +62,10 @@ class Solucion:
             if self.prenda_ya_anotada(prenda):
                 continue
             self._solucion.add((prenda, lavado_numero))
-            _prendas_posibles = self.prendas_posibles(prenda, compatibles)
-            for _pp in _prendas_posibles:
+            prendas_a_agregar = self.prendas_posibles(prenda, compatibles)
+            for _pp in prendas_a_agregar:
                 self._solucion.add((_pp, lavado_numero))
-            self._tiempo += self._mayor_tiempo_de_lavado_entre(_prendas_posibles + [prenda])
+            self._tiempo += self._mayor_tiempo_de_lavado_entre(prendas_a_agregar + [prenda])
             lavado_numero += 1
     
     def _mayor_tiempo_de_lavado_entre(self, prendas):
@@ -72,16 +73,23 @@ class Solucion:
 
     def prenda_ya_anotada(self, prenda):
         return any([prenda == s[0] for s in self._solucion])
+
+    # def _tiempo_prendas_compatibles(self, prenda, prendas):
+    #     cont = self._tiempo_de_lavado_de(prenda)
+    #     for p in prendas:
+    #         if p in self._compatibles[prenda]:
+    #             cont += self._tiempo_de_lavado_de(p)
+    #     return cont
     
     def prendas_posibles(self, prenda, prendas_compatibles):
-        posibles = []
+        prendas_a_agregar = []
         compatibles = sorted(prendas_compatibles, key=self._tiempo_de_lavado_de, reverse =True)
         for _prenda in compatibles:
             if self.prenda_ya_anotada(_prenda):
                 continue
-            if self._prenda_puede_entrar_en(_prenda, posibles):
-                posibles.append(_prenda)
-        return posibles
+            if self._prenda_puede_entrar_en(_prenda, prendas_a_agregar):
+                prendas_a_agregar.append(_prenda)
+        return prendas_a_agregar
     
     def _prenda_puede_entrar_en(self, prenda, posibles):
         posibles_prendas = self._compatibles[prenda]

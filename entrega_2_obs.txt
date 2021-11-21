@@ -5,3 +5,6 @@ Al comenzar el resultado encontrado es 513
 * Se intentó no ordernar por tiempo, pero por cantidad de prendas que tienen compatibles. No se logró una mejora en los tiempos
 * Se optimizan los tiempos de ejecución. Ahora se crea una única vez el listado de prendas compatibles
 * Con esta optimización se encontró un pequeño problema de repetición, ahora el resultado es de 493
+* Se intentó ordernar por el tiempo que sumaban todas las prendas compatibles de una prenda. Esto no mejoró los tiempos de corrida.
+Con esta alternativa además se encontró un problema en la lógica, ya que no era verídico el número dado. Esto es ya que no se consideraba que,
+aunque dos prendas fuesen compatibles para una, no descarta que las mismas no sean compatibles entre ellas 
