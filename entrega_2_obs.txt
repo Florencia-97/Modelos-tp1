@@ -7,4 +7,11 @@ Al comenzar el resultado encontrado es 513
 * Con esta optimización se encontró un pequeño problema de repetición, ahora el resultado es de 493
 * Se intentó ordernar por el tiempo que sumaban todas las prendas compatibles de una prenda. Esto no mejoró los tiempos de corrida.
 Con esta alternativa además se encontró un problema en la lógica, ya que no era verídico el número dado. Esto es ya que no se consideraba que,
-aunque dos prendas fuesen compatibles para una, no descarta que las mismas no sean compatibles entre ellas 
+aunque dos prendas fuesen compatibles para una, no descarta que las mismas no sean compatibles entre ellas.
+
+
+## Comentarios finales:
+
+* La solución presentada para el problema podría compararse con una del tipo Greedy. Esto ya que ordenamos
+según los tiempos en que se demoran en lavar (de mayor a menor) e intetamos juntar las mismas para optimizar los tiempos de lavado.
+Resolver un problema de manera greedy no nos garantiza, de todos modos, el mejor resultado posible.
