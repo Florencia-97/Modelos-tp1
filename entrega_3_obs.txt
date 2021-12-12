@@ -14,6 +14,7 @@ Tiempo: 1800.406000
 
 2) Mejora sobre buscarSolucionInicial
 a-b) Obtengan una solucion aproximada usando la heuristica desarrollada para la entrega anterior, Hardcodeen esa solucion para que el metodo buscarSolucionInicial la devuelva
+
 Se corrió el código ya programado en entregas anteriores (resultante en 108 lavados) y se  parseo el resultado para agregarlo posteriormente
 en buscarSolucionInicial (se puede ver el formato en entrega_3_hardcodeo.txt)
 
@@ -29,7 +30,10 @@ Nodos: 2449
 Tiempo: 1800.234000
 """
 
-4) Se agrega:
+Siguió sin encontrar el óptimo y el resultado final es el mismo.
+
+4) Se agrega el siguiente segmento de código:
+
 //Eliminacion Simetria por Xk>=Xk+1
 for (k = 0; k < maximoColor - 1; k++) {
 	posicionVariables[0] = k;
@@ -50,9 +54,12 @@ Nodos: 12086
 Tiempo: 524.422000 
 """
 
-Se puede notar que no solo tardó casi un cuarto de lo que estaba tomando, sino que además encontró el óptimo.
+Se puede notar que no solo tardó casi un cuarto de lo que estaba tomando, 
+sino que además encontró el resultado óptimo.
+Los primeros 7 resultados que podemos ver en la solución brindada 
+son los lavados (que son 7, sumando un valor total de 91):
 
-Los primeros 7 resultados son los lavados:
+"""
 Column 0 ( x_1): Value = 20
 Column 1 ( x_2): Value = 20
 Column 2 ( x_3): Value = 18
@@ -60,4 +67,8 @@ Column 3 ( x_4): Value = 16
 Column 4 ( x_5): Value = 9
 Column 5 ( x_6): Value = 7
 Column 6 ( x_7): Value = 1
-Y luego tenemos prenda_numeroDeLavabo
+"""
+
+Y luego tenemos las líneas que muestran 'prenda'_'numeroDeLavado'.
+Las mismas las formatié para obtener el resultado final
+para la distribución de las prendas en los distintos lavados.
