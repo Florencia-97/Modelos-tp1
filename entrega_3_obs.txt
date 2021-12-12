@@ -1,0 +1,15 @@
+## Tercera entrega
+
+0) Previo a utilizar CPLEX, el resultado encontrado con el algoritmo ya implementado es de 108
+
+1 ) Prueben correr el codigo sin cambios
+
+Se corrió el código tal como había sido presentado, tomando alrededor de 30 minutos para encontrar el siguiente resultado:
+
+"""
+Parece que no se llego al optimo, status: 107
+Optimo: 96.000000
+Cota: 67.781481
+Nodos: 2483
+Tiempo: 1800.406000
+"""

@@ -96,7 +96,7 @@ class Solucion:
         return not any([(p not in posibles_prendas) for p in posibles])
     
     def _escribir_solucion(self):
-        with open('./entrega_2.txt', 'w') as archivo:
+        with open('./entrega_3.txt', 'w') as archivo:
             for entrada in self._solucion:
                 archivo.write(f'{entrada[0]} {entrada[1]}\n')
 
@@ -108,7 +108,7 @@ class Solucion:
         print(self._tiempo)
 
 def main():
-    archivo = './enunciado2.txt'
+    archivo = './tercer_problema.txt'
     solucion = Solucion(archivo)
     solucion.resolver()
 
