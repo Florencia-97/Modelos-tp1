@@ -28,3 +28,36 @@ Cota: 67.781481
 Nodos: 2449
 Tiempo: 1800.234000
 """
+
+4) Se agrega:
+//Eliminacion Simetria por Xk>=Xk+1
+for (k = 0; k < maximoColor - 1; k++) {
+	posicionVariables[0] = k;
+	coeficienteVariables[0] = 1;
+	posicionVariables[1] = k + 1;
+	coeficienteVariables[1] = -1;
+	status = CPXaddrows(env, lp, 0, 1, 2, NULL, "G", &zero, posicionVariables, coeficienteVariables, NULL, NULL);
+	if (status)
+		goto TERMINATE;
+}
+
+El resultado obtenido fue de:
+
+"""
+Optimo: 91.000000
+Cota: 91.000000
+Nodos: 12086
+Tiempo: 524.422000 
+"""
+
+Se puede notar que no solo tardó casi un cuarto de lo que estaba tomando, sino que además encontró el óptimo.
+
+Los primeros 7 resultados son los lavados:
+Column 0 ( x_1): Value = 20
+Column 1 ( x_2): Value = 20
+Column 2 ( x_3): Value = 18
+Column 3 ( x_4): Value = 16
+Column 4 ( x_5): Value = 9
+Column 5 ( x_6): Value = 7
+Column 6 ( x_7): Value = 1
+Y luego tenemos prenda_numeroDeLavabo
