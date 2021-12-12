@@ -1,7 +1,5 @@
 ## Tercera entrega
 
-0) Previo a utilizar CPLEX, el resultado encontrado con el algoritmo ya implementado es de 108
-
 1 ) Prueben correr el codigo sin cambios
 
 Se corrió el código tal como había sido presentado, tomando alrededor de 30 minutos para encontrar el siguiente resultado:
@@ -12,4 +10,21 @@ Optimo: 96.000000
 Cota: 67.781481
 Nodos: 2483
 Tiempo: 1800.406000
+"""
+
+2) Mejora sobre buscarSolucionInicial
+a-b) Obtengan una solucion aproximada usando la heuristica desarrollada para la entrega anterior, Hardcodeen esa solucion para que el metodo buscarSolucionInicial la devuelva
+Se corrió el código ya programado en entregas anteriores (resultante en 108 lavados) y se  parseo el resultado para agregarlo posteriormente
+en buscarSolucionInicial (se puede ver el formato en entrega_3_hardcodeo.txt)
+
+3) Modifiquen el maxColor a la cantidad de lavados de la solucion obtenida en 2a
+
+Modificando el valor de maxColor no se encontraron mejoras significativas en el resultado finalmente dado:
+
+"""
+Parece que no se llego al optimo, status: 107
+Optimo: 96.000000
+Cota: 67.781481
+Nodos: 2449
+Tiempo: 1800.234000
 """
